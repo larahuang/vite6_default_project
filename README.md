@@ -12,3 +12,9 @@ cd 專案
 npm install
 npm run dev
 ```
+
+處理錯誤：修改vite.config.ts配置與安裝 @types/node
+```
+npm install --save-dev @types/node
+```
+
