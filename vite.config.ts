@@ -2,10 +2,12 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { fileURLToPath, URL } from "node:url"
 import { resolve } from "path"
+import { VitePWA } from "vite-plugin-pwa"
 export default defineConfig({
-  base: '/',
+  base: './',
   plugins: [
     vue(),
+    VitePWA({ registerType: 'autoUpdate' })
   ],
   resolve: {
     alias: {
@@ -13,4 +15,9 @@ export default defineConfig({
     }
   },
   envDir: resolve(__dirname, './env'),
+  server: {
+    hmr: {
+      overlay: false
+    }
+  },
 })

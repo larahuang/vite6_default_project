@@ -18,3 +18,36 @@ npm run dev
 npm install --save-dev @types/node
 ```
 
+### Vite Pwa漸進式網路應用程式 安裝與設定
+```
+npm i -D vite-plugin-pwa
+```
+vite.config.js增加
+```
+import { VitePWA } from "vite-plugin-pwa"
+
+export default defineConfig({
+  plugins: [
+    vue(),
+    VitePWA({ registerType: 'autoUpdate' })
+  ],
+  server: {
+    hmr: {
+      overlay: false
+    }
+  },
+})
+```
+<b>產生 PWA 資產產生和圖像</b>
+```
+npm install --global vue-pwa-asset-generator
+
+```
+執行指令
+剛剛製作的icon路徑產生到public/img/icons檔案夾內
+```
+npx vue-pwa-asset-generator -a ./public/logo.png -o ./public/img/icons
+
+
+```
+
